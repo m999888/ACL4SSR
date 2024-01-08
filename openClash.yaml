@@ -1,7 +1,7 @@
 [custom]
 ; 自用
 ruleset=🛡️ 隐私防护,clash-domain:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Privacy/Privacy_Domain.yaml
-;ruleset=🛡️ 隐私防护,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml
+ruleset=🛡️ 隐私防护,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml
 ruleset=🛑 广告拦截,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Direct/Direct.yaml
 ruleset=🛑 广告拦截,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ZhihuAds/ZhihuAds.yaml
 ruleset=🇨🇳 微信,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.yaml
@@ -27,9 +27,9 @@ ruleset=📺 TikTok,clash-classic:https://raw.githubusercontent.com/blackmatrix7
 ruleset=🎮 游戏服务,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml
 ruleset=🎯 全球直连,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Download/Download.yaml
 ruleset=🎯 全球直连,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml
-#ruleset=🌍 Global,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml
-#ruleset=🌍 Global,clash-classichttps://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Domain.yaml
-ruleset=🌍 Global,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Domain.txt
+# ruleset=🌍 Global,clash-classic:https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Classical.yaml
+# ruleset=🌍 Global,clash-classichttps://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global_Domain.yaml
+ruleset=🌍 Global,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Global/Global.list
 ruleset=🇨🇳 GEOIP直连,[]GEOIP,CN
 ruleset=🐟 兜底规则,[]FINAL
 ;设置分组标志
