@@ -69,8 +69,8 @@ custom_proxy_group=🇸🇬 新加坡节点`select`(新加坡|坡|新加坡|SG|S
 custom_proxy_group=🇰🇷 韩国节点`select`(KR|Korea|KOR|首尔|韩|韓)
 custom_proxy_group=⚡️其它节点`url-test`^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$`http://www.gstatic.com/generate_204`900,,50
 custom_proxy_group=⚡️其它节点（手选）`select`^((?!(网易|港|台|日|新|美|韩|HK|TW|KR|JP|US|SG)).)*$
-custom_proxy_group=🔯 故障转移`fallback`.*`http://www.gstatic.com/generate_204`600,,50
-custom_proxy_group=🔮 负载均衡`load-balance`.(负载|均衡)`http://www.gstatic.com/generate_204`600,,50
+custom_proxy_group=🔯 故障转移`fallback`.*`http://www.gstatic.com/generate_204`900,,50
+custom_proxy_group=🔮 负载均衡`load-balance`.*`http://www.gstatic.com/generate_204`900,,50
 ;设置分组标志位
 
 enable_rule_generator=true
