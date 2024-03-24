@@ -14,15 +14,17 @@ external-controller: :9090
 subscribe-url: https://sub.store/download/Server1
 
 proxy-providers:
-  All:
-    type: http
-    url: "https://sub.store/download/collection/AllServer"
+  Fishport:
     interval: 86400
-    path: ./all.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://cp.cloudflare.com/generate_204
+    url: http://sub.store/download/Fishport
+    benchmark-timeout: 3
+    benchmark-url: http://cp.cloudflare.com/generate_204
+  Elite:
+    interval: 86400
+    url: http://sub.store/download/Elite
+    benchmark-timeout: 3
+    benchmark-url: http://cp.cloudflare.com/generate_204
+    
 
 dns:
   enable: true
