@@ -54,228 +54,214 @@ dns:
 proxies:
             
 proxy-groups:
-  - name: 手动切换
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png
-    use:
-      - All
-    proxies:
-      - 自动选择
-      - 故障转移
-
-  - name: 自动选择
+  - name: ⚙️自动策略
     type: url-test
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
-    use: 
-       - All
-    url: "http://www.gstatic.com/generate_204"
-    interval: 300
-    
-  - name: 故障转移
-    type: fallback
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    use: 
-       - All
-
-  - name: 国内网站
+    lazy: true
+    proxies:
+      - 🇭🇰香港节点
+      - 🇸🇬新加坡节点
+      - 🇯🇵日本节点
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/FastCloud.png
+    use: null
+  - name: Google服务
+    proxies:
+      - 🇸🇬新加坡节点
+      - 🇯🇵日本节点
+      - 🇭🇰香港节点
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China_Map.png
-    proxies: 
+    lazy: true
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Google.png
+  - icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Microsoft.png
+    name: 微软服务
+    proxies:
+      - 🇺🇸美国节点
+      - 🇸🇬新加坡节点
+      - 🇯🇵日本节点
+      - 🇭🇰香港节点
       - DIRECT
-      - 手动切换
-      - 自动选择
-      - 故障转移
-      - 香港节点
-      - 台湾节点
-      - 日本节点
-      - 韩国节点
-      - 狮城节点
-      - 美国节点
-      - 其他节点
-      
-  - name: 国外网站
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
-    proxies: 
-      - 手动切换
-      - 自动选择
-      - 故障转移
-      - 香港节点
-      - 台湾节点
-      - 日本节点
-      - 韩国节点
-      - 狮城节点
-      - 美国节点
-      - 其他节点
+    lazy: true
+  - icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/telegram.png
+    lazy: true
+    name: ⚡️电报
+    proxies:
+      - 🇯🇵日本节点
+      - 🇸🇬新加坡节点
+      - 🇭🇰香港节点
+      - ⚙️自动策略
+    type: select
+  - name: 🍏Apple 服务
+    proxies:
       - DIRECT
-
-  - name: 香港节点
+      - 🇺🇸美国节点
+      - 🇭🇰香港节点
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
-    use:
-      - All
-    filter: 港|🇭🇰|HK|(?i)Hong
-
-  - name: 台湾节点
+    icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/Apple.png
+    lazy: true
+  - icon: https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/ipInfo.png
+    name: 🐟漏网之鱼
+    proxies:
+      - ⚙️自动策略
     type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
-    use:
-      - All
-    filter: 台|🇹🇼|TW|(?i)Taiwan
-    
-  - name: 日本节点
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
-    use:
-      - All
-    filter: 日|🇯🇵|JP|(?i)Japan
-     
-  - name: 狮城节点
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
-    use:
-      - All
-    filter: 坡|🇸🇬|狮城|SG|(?i)Singapore
-     
-  - name: 韩国节点
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
-    use:
-      - All
-    filter: 韩|🇰🇷|韓|KR|KOR|(?i)Korea
-    
-  - name: 美国节点
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
-    use:
-      - All
-    filter: 美|🇺🇸|US|(?i)States|American
-
-  - name: 其他节点
-    type: select
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Server.png
-    use:
-      - All
-    filter: ^((?!🇭🇰|港|HK|Hong|🇹🇼|台|TW|Tai|🇯🇵|日|JP|Japan|🇸🇬|坡|狮城|SG|Singapore|🇰🇷|韩|KR|KOR|Korea|🇺🇸|美|US|States|American).)*$
+    include-all: null
+  # 香港节点
+  - {name: 🇭🇰香港节点, icon: 'https://raw.githubusercontents.com/Koolson/Qure/master/IconSet/mini/Hong_Kong.png', !!merge <<: *u, filter: "港|🇭🇰|HK|(?i)Hong", type: url-test, use: [Elite], proxies: null, tolerance: 10}
+  # 狮城节点
+  - {name: 🇸🇬新加坡节点, icon: 'https://raw.githubusercontents.com/Koolson/Qure/master/IconSet/mini/Singapore.png', !!merge <<: *u, filter: "新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore", type: url-test, use: [Elite], proxies: null, tolerance: 10}
+  # 日本节点
+  - {name: 🇯🇵日本节点, icon: 'https://raw.githubusercontents.com/Koolson/Qure/master/IconSet/mini/Japan.png', !!merge <<: *u, filter: "日|🇯🇵|东京|JP|(?i)Japan", type: url-test, use: [Elite], proxies: null, tolerance: 10}
+  # 美国节点
+  - {name: 🇺🇸美国节点, icon: 'https://raw.githubusercontents.com/Koolson/Qure/master/IconSet/mini/United_States.png', !!merge <<: *u, filter: "美|🇺🇲|US|(?i)States|American", type: url-test, use: [Elite], proxies: null, tolerance: 10}
+  # 台湾节点
+  - {name: 🇨🇳台湾节点, icon: 'https://raw.githubusercontents.com/Koolson/Qure/master/IconSet/mini/China.png', !!merge <<: *u, filter: "台|🇨🇳|🇹🇼|湾|TW|(?i)Taiwan", type: url-test, use: [Fishport, Elite], proxies: null, tolerance: 10}
+  - filter: ^((?!(网易|music|Up|Net|美国|🇺🇸|香港|🇭🇰|台湾|新加坡|🇸🇬|日本|🇯🇵)).)*$
+    include-all: true
+    name: 其它地区
+    type: url-test
+    use: [Fishport]
     
 rule-providers:
-  # 远程规则集
-
-  Adblock:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AdvertisingLite/AdvertisingLite_Domain.yaml"
-    path: ./ruleset/AdDomain.yaml
-    interval: 86400
-        
-  Apple:
-    type: http
+  # 人工智能
+  OpenAI: {!!merge <<: *c, path: ./rules/openai.yaml, url: 'https://raw.githubusercontents.com/Coldvvater/Mononoke/master/Stash/RuleSet/AI.yaml', behavior: classical, format: yaml, interval: 86400}
+  # 油管视频
+  YouTube: {!!merge <<: *c, path: ./rules/youtube.yaml, url: 'https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/YouTube/YouTube_No_Resolve.yaml', behavior: classical, format: yaml, interval: 86400}
+  # 声田音乐
+  Spotify: {!!merge <<: *c, path: ./rules/spotify.yaml, url: 'https://raw.githubusercontents.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Spotify.yaml', behavior: classical, format: yaml, interval: 86400}
+  # 海外抖音
+  TikTok: {!!merge <<: *c, path: ./rules/tiktok.yaml, url: 'https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/TikTok/TikTok_No_Resolve.yaml', behavior: classical, format: yaml, interval: 86400}
+  # 电报信息
+  ⚡️电报: {!!merge <<: *c, path: ./rules/telegram.yaml, url: 'https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Telegram/Telegram_No_Resolve.yaml', behavior: classical, format: yaml, interval: 86400}
+  # GitHub
+  GitHub: {!!merge <<: *c, path: ./rules/gitHub.yaml, url: 'https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/GitHub/GitHub_No_Resolve.yaml', behavior: classical, format: yaml, interval: 86400}
+  # 谷歌服务
+  Google服务: {!!merge <<: *c, path: ./rules/google.yaml, url: 'https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Google/Google_No_Resolve.yaml', behavior: classical, format: yaml, interval: 86400}
+  # 微软服务
+  Microsoft服务: {!!merge <<: *c, path: ./rules/microsoft.yaml, url: 'https://raw.githubusercontents.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml', behavior: classical, format: yaml, interval: 86400}
+  BardAI:
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml"
-    path: ./ruleset/Apple.yaml
+    format: yaml
     interval: 86400
-
-  Google:
-    type: http
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BardAI/BardAI.yaml
+  MyBlockAds(分流去广告):
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
-    path: ./ruleset/Google.yaml
+    format: yaml
     interval: 86400
-    
-  Microsoft:
-    type: http
+    url: http://script.hub/file/_start_/https://raw.githubusercontent.com/RuCu6/QuanX/main/Rules/MyBlockAds.list/_end_/MyBlockAds.list?type=rule-set&target=stash-rule-set&del=true
+  毒奶去广告:
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml"
-    path: ./ruleset/Microsoft.yaml
+    format: yaml
     interval: 86400
-
-  WeChat:
-    type: http
+    url: http://script.hub/file/_start_/https://limbopro.com/Adblock4limbo.list/_end_/Adblock4limbo.list?type=rule-set&target=stash-rule-set&del=true
+  HTTPDNS🈲️Block:
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.yaml"
-    path: ./ruleset/WeChat.yaml
+    format: yaml
     interval: 86400
-
-  Telegram:
-    type: http
+    url: https://github.com/VirgilClyne/GetSomeFries/raw/main/ruleset/HTTPDNS.Block.yaml
+  ㊙️隐私保护:
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
-    path: ./ruleset/Telegram.yaml
+    format: yaml
     interval: 86400
-
-  OpenAI:
-    type: http
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Privacy/Privacy_Classical_No_Resolve.yaml
+  ㊙️反劫持:
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml"
-    path: ./ruleset/OpenAI.yaml
+    format: yaml
     interval: 86400
-    
-  Twitter: 
-    type: http
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Hijacking/Hijacking_No_Resolve.yaml
+  Netflix:
     behavior: classical
-    url: https://raw.githubusercontents.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
-    path: ./ruleset/Twitter.yaml
+    format: yaml
     interval: 86400
-
-  YouTube:
-    type: http
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml
+  Cloudflare:
     behavior: classical
-    url: https://raw.githubusercontents.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
-    path: ./ruleset/YouTube.yaml
+    format: yaml
     interval: 86400
-
-  TikTok: 
-    type: http
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare.yaml
+  🌍Global:
     behavior: classical
-    url: https://raw.githubusercontents.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
-    path: ./ruleset/TikTok.yaml
+    format: yaml
     interval: 86400
-
-  Streaming: # 国际媒体
-    type: http
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Global/Global_Classical_No_Resolve.yaml
+  YouTubeMusic:
     behavior: classical
-    url: https://raw.githubusercontents.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ProxyMedia.yaml
-    path: ./ruleset/Streaming.yaml
+    format: yaml
     interval: 86400
-    
-  China:
-    type: http
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTubeMusic/YouTubeMusic.yaml
+  抖音:
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/China/China.yaml"
-    path: ./ruleset/China.yaml
+    format: yaml
     interval: 86400
-
-  Global:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt"
-    path: ./ruleset/Global.yaml
-    interval: 86400
-
-  Lan: # 局域网
-    type: http
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/DouYin/DouYin.yaml
+  微信:
     behavior: classical
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml"
-    path: ./ruleset/lan.yaml
+    format: yaml
     interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.yaml
+  网易云音乐:
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEaseMusic/NetEaseMusic.yaml
+  Bing必应:
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml
+  🍏Apple:
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Apple/Apple_Classical_No_Resolve.yaml
+  字节跳动:
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ByteDance/ByteDance.yaml
+  微软AI:
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Copilot/Copilot.yaml
+  🇨🇳CN域名直连:
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_Classical_No_Resolve.yaml
     
 rules:
-  # 分流规则引用
-  - RULE-SET,Adblock,REJECT
-  - RULE-SET,Apple,国内网站
-  - RULE-SET,Google,国外网站  
-  - RULE-SET,Microsoft,国内网站
-  - RULE-SET,WeChat,国内网站
-  - RULE-SET,OpenAI,国外网站
-  - RULE-SET,Telegram,国外网站
-  - RULE-SET,Twitter,国外网站  
-  - RULE-SET,YouTube,国外网站
-  - RULE-SET,TikTok,国外网站  
-  - RULE-SET,Streaming,国外网站  
-  - RULE-SET,China,国内网站  
-  - RULE-SET,Global,国外网站
-  - RULE-SET,Lan,DIRECT
-  - GEOIP,CN,国内网站
-  - MATCH,国外网站
+  - DOMAIN-SUFFIX,test-ipv6.com,DIRECT # ipv6
+  - RULE-SET,⚡️电报,⚡️电报
+  - RULE-SET,MyBlockAds(分流去广告),REJECT,no-resolve
+  - RULE-SET,HTTPDNS🈲️Block,REJECT,no-resolve
+  - RULE-SET,毒奶去广告,REJECT,no-resolve
+  - RULE-SET,㊙️隐私保护,REJECT,no-resolve
+  - RULE-SET,㊙️反劫持,REJECT,no-resolve
+  - RULE-SET,🍏Apple,🍏Apple 服务
+  - RULE-SET,微信,DIRECT
+  - RULE-SET,抖音,DIRECT
+  - RULE-SET,网易云音乐,DIRECT
+  - RULE-SET,Cloudflare,🇯🇵日本节点
+  - RULE-SET,TikTok,🇺🇸美国节点,no-resolve
+  - RULE-SET,微软AI,🇺🇸美国节点
+  - RULE-SET,OpenAI,🇺🇸美国节点
+  - RULE-SET,BardAI,🇺🇸美国节点
+  - RULE-SET,Bing必应,微软服务
+  - RULE-SET,Microsoft服务,微软服务
+  - RULE-SET,YouTubeMusic,Google服务
+  - RULE-SET,YouTube,Google服务
+  - RULE-SET,Google服务,Google服务
+  - RULE-SET,字节跳动,DIRECT
+  - DOMAIN,lens.l.google.com,🇺🇸美国节点 # Google voice
+  - RULE-SET,Spotify,DIRECT
+  - RULE-SET,GitHub,⚙️自动策略
+  - RULE-SET,Netflix,🇭🇰香港节点
+  - RULE-SET,🌍Global,⚙️自动策略
+  - AND,((NETWORK,UDP)
+  - SCRIPT,quic,REJECT
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.metacubex.one,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
+  - DOMAIN,d.metacubex.one,DIRECT
+  - RULE-SET,🇨🇳CN域名直连,DIRECT
+  - GEOIP,CN,DIRECT,no-resolve
+  - MATCH,🐟漏网之鱼
