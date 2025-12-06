@@ -1,3 +1,4 @@
+payload:
   - DOMAIN-SUFFIX,edgedatg.com
   - DOMAIN-SUFFIX,go.com
   - DOMAIN-KEYWORD,anthropic
@@ -798,4 +799,5 @@
   - DOMAIN-SUFFIX,flzbcdn.xyz
   - DOMAIN-SUFFIX,ocnttv.com
   - DOMAIN-SUFFIX,vikacg.com
+
   - DOMAIN-SUFFIX,picjs.xyz
